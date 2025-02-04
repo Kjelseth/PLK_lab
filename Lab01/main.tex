@@ -44,15 +44,13 @@ Lab 01} % Line 2 of title, its not subtitle, that is possible to, google it
 \definecolor{portOrange}{RGB}{234, 72, 31}
 \definecolor{darkGray}{RGB}{60, 60, 60}
 
-%Link
+% Link color customization
 \hypersetup{
     colorlinks=true,
-    linkcolor=darkGray,    
-    urlcolor=keywordBlue
+    linkcolor=darkGray, % Internal links such as table of contents or figure referencing
+    urlcolor=keywordBlue % URL colors
     }
-
-\urlstyle{same}
-
+\urlstyle{same} % Makes url in the same style as the rest of the document
 
 % Customisation of margins and paper size
 \geometry{
@@ -63,8 +61,8 @@ Lab 01} % Line 2 of title, its not subtitle, that is possible to, google it
  bottom = 30mm
  }
 
-% Sections formatting and numbering
 
+% Sections formatting and numbering
 % Sets the font to monospace for section, subsection and subsubsection
 % and sets the format to be numbers with . between and at the end
 \renewcommand{\thesection}{\texttt{\arabic{section}.}}
@@ -99,6 +97,22 @@ Lab 01} % Line 2 of title, its not subtitle, that is possible to, google it
   \ifnum\value{section}=-1 \else\clearpage\fi % Replace -1 with 0 if sections start at nr. 1
 }{}{}
 
+% Makes Table of contents a subsection
+\makeatletter
+\renewcommand{\tableofcontents}{%
+    \subsection{Table of Contents} % Numbered subsection named Table of contents
+    \@starttoc{toc}%
+}
+\makeatother
+
+% Makes List of figures a subsection
+\makeatletter
+\renewcommand{\listoffigures}{%
+    \subsection{List of Figures} % Numbered subsection named List of figures
+    \@starttoc{lof}%
+}
+\makeatother
+
 % Makes every figure be formated as section number.figure number
 \renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
 
@@ -117,37 +131,6 @@ Lab 01} % Line 2 of title, its not subtitle, that is possible to, google it
         SW, LEDR, KEY,
         HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6},
     sensitive = false
-}
-
-% Makes Table of contents a subsection
-\makeatletter
-\renewcommand{\tableofcontents}{%
-    \subsection{Table of Contents} % Numbered subsection named Table of contents
-    \@starttoc{toc}%
-}
-\makeatother
-
-
-% Makes Table of contents a subsection
-\makeatletter
-\renewcommand{\listoffigures}{%
-    \subsection{List of Figures} % Numbered subsection named List of figures
-    \@starttoc{lof}%
-}
-\makeatother
-
-
-\newcommand{\introduction}[1][]{%
-    \addtocontents{toc}{\protect\setcounter{tocdepth}{0}} % Temporarily hide from TOC
-    \section{Introduction} % Numbered section named Introduction
-    \ifx\relax#1\relax % Check if argument is empty
-    \else
-        #1 % Insert the optional text if provided
-    \fi
-    \tableofcontents % Generate TOC
-    \clearpage
-    \listoffigures % List of figures
-    \addtocontents{toc}{\protect\setcounter{tocdepth}{2}} % Restore TOC depth
 }
 
 
@@ -243,14 +226,19 @@ Lab 01} % Line 2 of title, its not subtitle, that is possible to, google it
     \end{figure}
 }
 
-
-
-
-
-
-
-
-
+% This is the custom command used for making the introduction section
+\newcommand{\introduction}[1][]{%
+    \addtocontents{toc}{\protect\setcounter{tocdepth}{0}} % Temporarily hide from TOC
+    \section{Introduction} % Numbered section named Introduction
+    \ifx\relax#1\relax % Check if argument is empty
+    \else
+        #1 % Insert the optional text if provided
+    \fi
+    \tableofcontents % Generate TOC
+    \clearpage
+    \listoffigures % List of figures
+    \addtocontents{toc}{\protect\setcounter{tocdepth}{2}} % Restore TOC depth
+}
 
 
 
@@ -260,12 +248,11 @@ Lab 01} % Line 2 of title, its not subtitle, that is possible to, google it
 
 \maketitle % Makes title front page based on the title, author and date metadata, change at the top
 
+
 %           ########## Section ##########
+% This makes the first section, introduction, that are excluded from the table of contents and
+% has an optional text argument, then it creates table of contents and list of figures
 \introduction[This is the first report in this course, detailing the completion of the first lab exerciser, I hope to get some feedback on this. Note: The \LaTeX\ code is open source, \href{https://github.com/Kjelseth/PLK_lab/tree/d4e9089cbfbc54d71235c1e0b90b5a95e3b57953/Lab01}{github link}.]
-
-
-
-
 
 
 %   ############################## Section ##############################
@@ -415,6 +402,7 @@ It is not clear from the RTL view what input is connected to witch segments. Bas
     \label{fig:T04pic}
 \end{figure}
 Here you can see that the output is as expected. When the input is set to 00 the output is the letter "d". When the input is set to 01 the output is the letter "E". When the input is set to 10 the output is the number "1". When the input is set to 11 the output is off.
+
 
 %   ############################## Section ##############################
 \section{Task number 5}
