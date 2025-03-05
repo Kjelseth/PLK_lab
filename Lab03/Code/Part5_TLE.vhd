@@ -28,15 +28,24 @@ architecture behavioural of L03P05 is
 
     signal A, B : std_logic_vector(7 downto 0);
     signal S    : std_logic_vector(8 downto 0);
+    signal swap : std_logic;
 
 begin
 
     LEDR(9 downto 1) <= "000000000";
-    LEDR(0)          <= S(8);
-
-    process()
+    
+    process(SW, KEY, A, B, S)
     begin
-        if 
+        S = A + B;
+        LEDR(0)          <= S(8);
+        if rising_edge(KEY) then
+            swap <= not(swap)
+        end if;
+        if swap = '0' then
+            A <= SW;
+        else
+            B <= SW;
+        end if ;
     end process;
 
     R0: Reg port map(
