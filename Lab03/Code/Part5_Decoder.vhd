@@ -13,7 +13,7 @@ begin
 	begin
         case N is
             when "0000" =>
-                HEX <= "1000001";
+                HEX <= "1000000";
             when "0001" =>
                 HEX <= "1111001";
             when "0010" =>
