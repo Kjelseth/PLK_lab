@@ -12,7 +12,7 @@ architecture behavioural of Reg is
 begin
     process(Clk, D)
     begin
-        if rising_edge(Clk) then
+        if falling_edge(Clk) then
             Q <= D;
         end if;
         if Rst = '0' then

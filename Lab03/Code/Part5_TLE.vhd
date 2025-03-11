@@ -1,13 +1,14 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
 
 entity L03P05 is
     port(SW         : in  std_logic_vector(7 downto 0);
          KEY        : in  std_logic_vector(1 downto 0);
          LEDR       : out std_logic_vector(9 downto 0);
-         HEX0, HEX1 : out std_logic_vector(9 downto 0);
-         HEX2, HEX3 : out std_logic_vector(9 downto 0);
-         HEX4, HEX5 : out std_logic_vector(9 downto 0));
+         HEX0, HEX1 : out std_logic_vector(6 downto 0);
+         HEX2, HEX3 : out std_logic_vector(6 downto 0);
+         HEX4, HEX5 : out std_logic_vector(6 downto 0));
 end L03P05;
 
 
@@ -28,7 +29,6 @@ architecture behavioural of L03P05 is
 
     signal A, B : std_logic_vector(7 downto 0);
     signal S    : std_logic_vector(8 downto 0);
-    signal swap : std_logic;
 
 begin
 
@@ -36,28 +36,18 @@ begin
     
     process(SW, KEY, A, B, S)
     begin
-        S = A + B;
-        LEDR(0)          <= S(8);
-        if rising_edge(KEY) then
-            swap <= not(swap)
-        end if;
-        if swap = '0' then
-            A <= SW;
-        else
-            B <= SW;
-        end if ;
-    end process;
+
+        A <= SW;
+    
+        S <= ('0' & A) + ('0' & B);
+        LEDR(0) <= S(8);
+    
+        end process;
 
     R0: Reg port map(
-        Clk => ,
+        Clk => KEY(1),
         Rst => KEY(0),
-        D   => ,
-        Q   => A);
-
-    R1: Reg port map(
-        Clk => ,
-        Rst => KEY(0),
-        D   => ,
+        D   => A,
         Q   => B);
 
     H0: display port map(
