@@ -22,7 +22,7 @@ architecture structural of L04P01 is
     component display
         port(Num  : in  std_logic_vector(7 downto 0);
              HEXa : out std_logic_vector(6 downto 0);
-             HEXB : out std_logic_vector(6 downto 0));
+             HEXb : out std_logic_vector(6 downto 0));
     end component;
 
     signal N_a : std_logic_vector(7 downto 0);
