@@ -2,11 +2,11 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity display is
-	port(Num  : in  std_logic_vector(7 downto 0);
-         HEXa : out std_logic_vector(6 downto 0);
-         HEXb : out std_logic_vector(6 downto 0);
-         HEXc : out std_logic_vector(6 downto 0);
-         HEXd : out std_logic_vector(6 downto 0));
+	port(Num  : in  std_logic_vector(15 downto 0);
+         HEXa : out std_logic_vector(6  downto 0);
+         HEXb : out std_logic_vector(6  downto 0);
+         HEXc : out std_logic_vector(6  downto 0);
+         HEXd : out std_logic_vector(6  downto 0));
 end display;
 
 architecture behavioural of display is
