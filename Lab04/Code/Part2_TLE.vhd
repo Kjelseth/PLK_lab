@@ -22,7 +22,7 @@ architecture behavioural of L04P02 is
              HEXd : out std_logic_vector(6  downto 0));
     end component;
 
-    signal Q   : std_logic_vector(15 downto 0) := (others => '0');
+    signal Q : std_logic_vector(15 downto 0) := (others => '0');
 
 begin
     process(SW, KEY, Q)
