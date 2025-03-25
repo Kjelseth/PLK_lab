@@ -13,21 +13,24 @@ end modulo_k_counter;
 
 architecture behavioural of modulo_k_counter is
 
+    signal Val : std_logic_vector(n-1 downto 0);
+
 begin
     process(Clk, Rst)
     begin
         if rising_edge(Clk) then
-            if Num = k-1 then
-                Num <= (others => '0');
+            if Val = k-1 then
+                Val <= (others => '0');
                 Hop <= '1';
             else
-                Num <= Num + 1;
+                Val <= Val + 1;
                 Hop <= '0';
             end if;
         end if;
-        if rising_edge(Rst) then
-            Num <= (others => '0');
+        if Rst = '0' then
+            Val <= (others => '0');
             Hop <= '0';
         end if;
+        Num <= Val;
     end process;
 end behavioural;

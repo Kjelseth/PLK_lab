@@ -25,11 +25,9 @@ architecture structural of L05P01 is
 
 begin
 
-    display <= LEDR(output_size-1 downto 0);
-    if output_size < 8 then
-        LEDR(8 downto output_size) <= (others => '0');
-    end if;
-    rollover <= LEDR(9);
+    LEDR(output_size-1 downto 0) <= display;
+    LEDR(8 downto output_size) <= (others => '0');
+    LEDR(9) <= rollover;
 
     Clk <= KEY(3);
     Rst <= KEY(2);
@@ -37,7 +35,7 @@ begin
     K20: modulo_k_counter
             generic map
                 (n => output_size,
-                 k => 20);
+                 k => 20)
             port map
                 (Clk => Clk,
                  Rst => Rst,
