@@ -15,12 +15,13 @@ architecture behavioural of display_BCD is
              HEX : out std_logic_vector(6 downto 0));
     end component;
 
-    signal lsd, msd : std_logic_vector(3 donwto 0);
+    signal lsd, msd : std_logic_vector(3 downto 0);
     signal Num_int, lsd_int, msb_int : integer;
 
 
 begin
     process(Num)
+    begin
         Num_int <= to_integer(unsigned(Num));
 
         if (Num_int >= 0 and Num_int < 10) then
@@ -46,8 +47,8 @@ begin
         end if;
         
         msb_int <= to_integer(unsigned(msd));
-        lsd_int <= Num_int - msb_int;
-        lsd <= std_logic_vector(to_unsigned(lsd_int, lsd'lenght));
+        lsd_int <= Num_int - (10 * msb_int);
+        lsd <= std_logic_vector(to_unsigned(lsd_int, lsd'length));
     end process;
 
     HEX_lsd: decoder7seg port map
