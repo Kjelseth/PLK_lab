@@ -48,7 +48,7 @@ architecture behavioural of L05P03 is
              ClkDash     : in  std_logic;
              Enable      : in  std_logic;
              Reset       : in  std_logic;
-             LettSize  : in  integer;
+             LettSize    : in  integer;
              FromShifter : in  std_logic_vector(3 downto 0);
              LoadNew     : out std_logic;
              ShiftEnable : out std_logic;
@@ -56,20 +56,18 @@ architecture behavioural of L05P03 is
              OutLED      : out std_logic);
     end component;
 
-    signal Clk_500ms, Clk_1500ms  : std_logic := '0';
-    signal Rst, disabled, startup : std_logic := '1';
-    signal LettSize, LetterNr : integer;
-    signal FromShifter, ToShifter : std_logic_vector(3 downto 0);
-    signal LoadNew, ShiftEnable : std_logic;
-    signal LetterData : std_logic_vector(3 downto 0);
-    signal ResetClkSignal, ResetClk : std_logic;
-
+    signal Clk_500ms, Clk_1500ms    : std_logic := '0';
+    signal Rst, disabled, startup   : std_logic := '1';
+    signal LoadNew, ShiftEnable     : std_logic := '0';
+    signal ResetClkSignal, ResetClk : std_logic := '0';
+    signal LettSize, LetterNr       : integer   := 0;
+    signal FromShifter, LetterData  : std_logic_vector(3 downto 0);
 
 begin
     
     LEDR(9 downto 1) <= (others => '0');
 
-    process(CLOCK_50, startup)
+    process(CLOCK_50)
     begin
         if rising_edge(CLOCK_50) and startup = '1' then
             startup <= '0';
@@ -112,7 +110,7 @@ begin
              LoadNew    => LoadNew,
              Enable     => ShiftEnable,
              Reset      => Rst,
-             LettSize => LettSize);
+             LettSize   => LettSize);
         
     LetterSymbolShiftRegister: LetterShiftRegister
         port map
@@ -129,7 +127,7 @@ begin
              ClkDash     => Clk_1500ms,
              Enable      => KEY(3),
              Reset       => Rst,
-             LettSize  => LettSize,
+             LettSize    => LettSize,
              FromShifter => FromShifter,
              LoadNew     => LoadNew,
              ShiftEnable => ShiftEnable,

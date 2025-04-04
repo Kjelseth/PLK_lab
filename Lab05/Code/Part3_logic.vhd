@@ -7,7 +7,7 @@ entity MorseLogic is
          ClkDash     : in  std_logic;
          Enable      : in  std_logic;
          Reset       : in  std_logic;
-         LettSize  : in  integer;
+         LettSize    : in  integer;
          FromShifter : in  std_logic_vector(3 downto 0);
          LoadNew     : out std_logic;
          ShiftEnable : out std_logic;
