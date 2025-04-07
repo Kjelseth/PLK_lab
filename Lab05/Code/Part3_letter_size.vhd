@@ -1,49 +1,55 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity LetterSize is
-    port(Letter     : in  integer;
-         LoadNew    : in  std_logic;
+entity LetterSizeRegister is
+    port(Clk        : in  std_logic;
+         nRst       : in  std_logic;
          Enable     : in  std_logic;
-         Reset      : in  std_logic;
-         LettSize : out integer);
+         Load       : in  std_logic;
+         LetterNew  : in  integer range 0 to 8;
+         LetterSize : out integer range 0 to 4);
 end entity;
 
 
-architecture behavioural of LetterSize is
+architecture behavioural of LetterSizeRegister is
 
-    signal Size : integer := 0;
+    signal Size : integer range 0 to 4 := 0;
 begin
 
+    LetterSize <= Size;
 
-    process(Enable, Rst)
+    process(Clk, nRst) is
     begin
-        if rising_edge(Enable) and LoadNew = '0' then
-            Size := Size - 1;
-        elsif rising_edge(Enable) and LoadNew = '1' then
-            case Letter is
-                when 0 =>      -- A ._
-                    Size := 2;
-                when 1 =>      -- B _...
-                    Size := 4;
-                when 2 =>      -- C _._.
-                    Size := 4;
-                when 3 =>      -- D _..
-                    Size := 3;
-                when 4 =>      -- E .
-                    Size := 1;
-                when 5 =>      -- F .._.
-                    Size := 4;
-                when 6 =>      -- G __.
-                    Size := 3;
-                when 7 =>      -- H ....
-                    Size := 4;
-            end case;
+        if rising_edge(Clk) then
+            if Enable = '1' then
+                Size <= Size - 1;
+            end if;
+            if Load = '1' then
+                case  LetterNew is
+                    when 1 =>      -- A ._
+                        Size <= 2;
+                    when 2 =>      -- B _...
+                        Size <= 4;
+                    when 3 =>      -- C _._.
+                        Size <= 4;
+                    when 4 =>      -- D _..
+                        Size <= 3;
+                    when 5 =>      -- E .
+                        Size <= 1;
+                    when 6 =>      -- F .._.
+                        Size <= 4;
+                    when 7 =>      -- G __.
+                        Size <= 3;
+                    when 8 =>      -- H ....
+                        Size <= 4;
+                    when others =>
+                        Size <= 0;
+                end case;
+            end if;
         end if;
-        if Rst = '0' then
-            Size := 0;
+        if nRst = '0' then
+            -- reset values
         end if;
-        LettSize := Size;
     end process;
 
 end architecture;

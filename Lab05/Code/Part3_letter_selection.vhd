@@ -3,43 +3,50 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity LetterSelection is
-    port(Selection  : in  std_logic_vector(2 downto 0);
-         Enable     : in  std_logic;
-         LetterNr   : out integer;
-         LetterData : out std_logic_vector(3 downto 0));
+    port(Clk          : in  std_logic;
+         nRst         : in  std_logic;
+         Selection    : in  std_logic_vector(2 downto 0);
+         LetterNumber : out integer range 0 to 8;
+         LetterData   : out std_logic_vector(3 downto 0));
 end entity;
 
 
 architecture behavioural of LetterSelection is
 
-    signal LetterNumber : integer := 0;
+    signal LetterNr : integer range 0 to 8 := 0;
 
 begin
 
-    process(Enable)
+    process(Clk, nRst)
     begin
-        if rising_edge(Enable) then
-            LetterNumber <= to_integer(unsigned(Selection));
-            case LetterNumber is
-                when 0 =>      -- A ._
+        if rising_edge(Clk) then
+            LetterNr <= to_integer(unsigned(Selection)) + 1;
+            case LetterNr is
+                when 1 =>      -- A ._
                     LetterData <= "01--";
-                when 1 =>      -- B _...
+                when 2 =>      -- B _...
                     LetterData <= "1000";
-                when 2 =>      -- C _._.
+                when 3 =>      -- C _._.
                     LetterData <= "1010";
-                when 3 =>      -- D _..
+                when 4 =>      -- D _..
                     LetterData <= "100-";
-                when 4 =>      -- E .
+                when 5 =>      -- E .
                     LetterData <= "0---";
-                when 5 =>      -- F .._.
+                when 6 =>      -- F .._.
                     LetterData <= "0010";
-                when 6 =>      -- G __.
+                when 7 =>      -- G __.
                     LetterData <= "110-";
-                when 7 =>      -- H ....
+                when 8 =>      -- H ....
                     LetterData <= "0000";
+                when others =>
+                    LetterData <= (others => '-');
             end case;
         end if;
-        LetterNr <= LetterNumber;
+        LetterNumber <= LetterNr;
+        if nRst = '0' then
+            LetterNumber <= 0;
+            LetterData   <= "----";
+        end if;
     end process;
 
 end architecture;

@@ -1,102 +1,94 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity MorseLogic is
     port(Clk         : in  std_logic;
-         ClkDot      : in  std_logic;
-         ClkDash     : in  std_logic;
-         Enable      : in  std_logic;
-         Reset       : in  std_logic;
-         LettSize    : in  integer;
-         FromShifter : in  std_logic_vector(3 downto 0);
-         LoadNew     : out std_logic;
-         ShiftEnable : out std_logic;
-         ResetClk    : out std_logic;
+         nRst        : in  std_logic;
+         nEnable     : in  std_logic;
+         Letter      : in  std_logic_vector(3 downto 0);
+         LetterSize  : in  integer range 0 to 4;
+         LoadLetter  : out std_logic;
+         ShiftLetter : out std_logic;
          OutLED      : out std_logic);
 end entity;
 
 
 architecture behavioural of MorseLogic is
 
-    signal Load    : std_logic := '0';
-    signal Running : std_logic := '0';
-    signal Step    : std_logic := '0';
-    signal RstClk  : std_logic := '0';
-    signal Dot, Dash, Between : std_logic  := '0';
+    type MorseState is (Sleep, Running, Dot, Dash, Between);
+    signal State : MorseState;
+    signal Count : integer range 0 to 75e6;
 
 begin
 
-    process(Clk)
+    process(Clk, nRst) is
     begin
-        if rising_edge(Clk) and Enable = '1' and Load = '0' then
-            Load        <= '1';
-            LoadNew     <= '1';
-            ShiftEnable <= '1';
-            Running     <= '1';
-        elsif rising_edge(Clk) and Load = '1' then
-            LoadNew     <= '0';
-            ShiftEnable <= '0';
-            Load        <= '0';
-            Step        <= '1';
-        end if;
-    end process;
+        if rising_edge(Clk) then
+            Count <= Count + 1;
+            case State is
 
-    process(Clk)
-    begin
-        if rising_edge(Clk) and Running = '1' then
-            if LettSize > 0 then
-                if Dot = '0' and Dash = '0' and Between = '0' then
-                    RstClk <= '1';
-                    if Step = '1' then
-                        if FromShifter(3) = '0' then
-                            Dot  <= '1';
-                            Step <= '0';
-                        elsif FromShifter(3) = '1' then
-                            Dash <= '1';
-                            Step <= '0';
-                        end if;
-                    elsif Step = '0' then
-                        Between <= '1';
-                        Step    <= '1';
+                when Sleep =>
+                    if nEnable = '0' then
+                        LoadLetter <= '1';
+                        State <= Running;
                     end if;
-                end if;
-            elsif LettSize = 0 then
-                Running <= '0';
-            end if;
-        end if;
-    end process;
-    LoadNew <= Load;
 
-    process(Clk)
-    begin
-        if rising_edge(Clk) and Dot = '1' then
-            OutLED      <= '1';     -- Displays dot
-            ShiftEnable <= '1';
-            wait until ClkDot = '1';
-            OutLED      <= '0';
-            ShiftEnable <= '0';
-            Dot         <= '0';
-        elsif rising_edge(Clk) and Dash = '1' then
-            OutLED      <= '1';     -- Displays dash
-            ShiftEnable <= '1';
-            wait until ClkDash = '1';
-            OutLED      <= '0';
-            ShiftEnable <= '0';
-            Dash        <= '0';
-        elsif rising_edge(Clk) and Between = '1' then
-            OutLED      <= '0';     -- Waits between
-            wait until ClkDot = '1';
-            Between     <= '0';
-        end if;
-    end process;
+                when Running =>
+                    if not (LetterSize = 0) then
+                        LoadLetter <= '0';
+                        if Letter(3) = '0' then
+                            State <= Dot;
+                            ShiftLetter <= '1';
+                            Count <= 0;
+                        elsif Letter(3) = '1' then
+                            State <= Dash;
+                            ShiftLetter <= '1';
+                            Count <= 0;
+                        end if;
+                    end if;
 
-    process(Clk)
-    begin
-        if rising_edge(Clk) and RstClk = '1' then
-            ResetClk <= '1';
-            RstClk <= '0';
-        elsif rising_edge(Clk) and RstClk = '0' then
-            ResetClk <= '0';
+                when Dot =>
+                    if Count = 25e6 - 1 then
+                        Count <= 0;
+                        if LetterSize = 0 then
+                            State <= Sleep;
+                        else
+                            State <= Between;
+                        end if;
+                    else
+                        OutLED <= '1';
+                        ShiftLetter <= '0';
+                    end if;
+
+                when Dash =>
+                    if Count = 75e6 - 1 then
+                        Count <= 0;
+                        if LetterSize = 0 then
+                            State <= Sleep;
+                        else
+                            State <= Between;
+                        end if;
+                    else
+                        OutLED <= '1';
+                        ShiftLetter <= '0';
+                    end if;
+
+                when Between =>
+                    OutLED <= '0';
+                    if Count = 25e6 - 1 then
+                        Count <= 0;
+                        State <= Running;
+                    end if;
+            
+            end case;
+        end if;
+        if nRst = '0' then
+            State <= Sleep;
+            Count <= 0;
+            LoadLetter <= '0';
+            ShiftLetter <= '0';
+            OutLED <= '0';
         end if;
     end process;
 
