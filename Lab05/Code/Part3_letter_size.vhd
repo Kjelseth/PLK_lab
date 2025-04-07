@@ -48,7 +48,7 @@ begin
             end if;
         end if;
         if nRst = '0' then
-            -- reset values
+            Size <= 0;
         end if;
     end process;
 
