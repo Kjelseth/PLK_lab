@@ -144,14 +144,14 @@
 % after pasting in code and only add non-highlited words to this list.
 % Also, there is not a list for orange keywords, used for ports here.
 \lstdefinelanguage{VHDL+}{
-    language     = VHDL,
-    morestring = [b]',
+    language     = VHDL,,
     morekeywords = [2]{
         ieee, std_logic_1164, numeric_std, work,
         std_logic, std_logic_vector,
-        natural, integer, signed, unsigned},
+        natural, integer, signed, unsigned,
+        length},
     morekeywords = [3]{
-        rising_edge, falling_edge, to_integer,
+        rising_edge, falling_edge, to_integer, to_unsigned, to_
         SW, LEDR, KEY, CLOCK_50,
         HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6},
     sensitive = false
