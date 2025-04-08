@@ -29,6 +29,7 @@ begin
             case State is
 
                 when Sleep =>
+                OutLED <= '0';
                     if nEnable = '0' then
                         LoadLetter <= '1';
                         State <= Running;
