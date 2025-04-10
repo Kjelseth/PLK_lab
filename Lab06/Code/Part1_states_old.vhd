@@ -18,7 +18,7 @@ begin
     begin
         if rising_edge(Clk) then
             if nRst = '0' then
-                State <= "000000001"
+                State <= "000000001";
             else
                 if Enable = '1' then
                     State <= NewState;
