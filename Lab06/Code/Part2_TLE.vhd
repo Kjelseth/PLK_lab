@@ -18,27 +18,26 @@ architecture behavioural of L06P02 is
 
     signal w, z            : std_logic;
     signal ShowEncoding    : std_logic_vector(3 downto 0);
-    signal NewState, State : std_logic_vector(8 downto 0);
 
 begin
 
     w                <= SW(1);
     LEDR(9)          <= z;
-    LEDR(8 downto 4) <= '0';
+    LEDR(8 downto 4) <= (others => '0');
     LEDR(3 downto 0) <= ShowEncoding;
 
-    process(KEY(3))
+    process(KEY(3)) is
 
-    procedure ChangeState(wantedValue : std_logic;
-                          toState     : TaskState; 
-                          elseState   : TaskState); is
-    begin
-        if w = wantedValue then
-            State <= toState;
-        else
-            State <= elseState;
-        end if;
-    end procedure;
+        procedure ChangeState(wantedValue : std_logic;
+                              toState     : TaskState; 
+                              elseState   : TaskState) is
+        begin
+            if w = wantedValue then
+                State <= toState;
+            else
+                State <= elseState;
+            end if;
+        end procedure;
 
     begin
         if rising_edge(KEY(3)) then
@@ -97,27 +96,16 @@ begin
         end if;
     end process;
 
-    process(State, Key(3))
+    process(State)
     begin
         case State is -- Output logic
-            when A => z <= '0';
-            when B => z <= '0';
-            when C => z <= '0';
-            when D => z <= '0';
-            when E => z <= '1';
-            when F => z <= '0';
-            when G => z <= '0';
-            when H => z <= '0';
-            when I => z <= '1';
+            when E      => z <= '1';
+            when I      => z <= '1';
+            when others => z <= '0';
         end case;
-        if rising_edge(KEY(3)) then
-            if SW(0) = '0' then -- Reset
-                z <= '0'
-            end if;
-        end if;
     end process;
 
-    process(State, Key(3)) is
+    process(State) is
     begin
         case State is -- Encoding output hardcoded sequential
             when A => ShowEncoding <= "0000";
@@ -130,10 +118,5 @@ begin
             when H => ShowEncoding <= "0111";
             when I => ShowEncoding <= "1000";
         end case;
-        if rising_edge(KEY(3)) then
-            if SW(0) = '0' then -- Reset
-                ShowEncoding <= "0000";
-            end if;
-        end if;
     end process;
 end architecture;

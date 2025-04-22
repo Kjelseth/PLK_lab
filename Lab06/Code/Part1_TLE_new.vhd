@@ -24,13 +24,13 @@ begin
     begin
         z           <= State(4) or State(8);
         NewState(0) <= '1';
-        NewState(1) <= not (w and
-                       State(1) and State(2) and State(3) and State(4));
+        NewState(1) <= (not w) and ((not State(0)) or State(5) or
+                       State(6) or State(7) or State(8));
         NewState(2) <= (not w) and State(1);
         NewState(3) <= (not w) and State(2);
         NewState(4) <= (not w) and (State(3) or State(4));
-        NewState(5) <= not ((not w) and
-                       State(5) and State(6) and State(7) and State(8));
+        NewState(5) <= w and ((not State(0)) or State(1) or
+                       State(2) or State(3) or State(4));
         NewState(6) <= w and State(5);
         NewState(7) <= w and State(6);
         NewState(8) <= w and (State(7) or State(8));
