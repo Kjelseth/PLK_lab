@@ -1,0 +1,21 @@
+\contentsline {figure}{Figure 3.1: Encoding table made by Quartus}{6}{figure.caption.1}%
+\contentsline {figure}{Figure 3.2: State transition diagram}{7}{figure.caption.2}%
+\contentsline {figure}{Code 4.1: TLE that ties the system together}{9}{codeblock.1}%
+\contentsline {figure}{Code 4.2: Letter selector is a lookup table}{10}{codeblock.2}%
+\contentsline {figure}{Code 4.3: Custom loadable shift register}{12}{codeblock.3}%
+\contentsline {figure}{Code 4.4: Decoder with load for 7-segment display output}{13}{codeblock.4}%
+\contentsline {figure}{Code 4.5: Logic control deciding FSM transitions and output}{15}{codeblock.5}%
+\contentsline {figure}{Figure 4.3: RTL of the TLE}{18}{figure.caption.6}%
+\contentsline {figure}{Figure 4.4: RTL of the letter selector component}{19}{figure.caption.7}%
+\contentsline {figure}{Figure 4.5: RTL of the letter shift register component}{20}{figure.caption.8}%
+\contentsline {figure}{Figure 4.6: RTL of the 7 segment decoder component}{21}{figure.caption.9}%
+\contentsline {figure}{Figure 4.7: RTL of the logic component}{21}{figure.caption.10}%
+\contentsline {figure}{Code 4.6: Testbench for the Letter selector}{22}{codeblock.6}%
+\contentsline {figure}{Code 4.7: Testbench for the Letter shift register}{23}{codeblock.7}%
+\contentsline {figure}{Code 4.8: Testbench for the 7 segment decoder}{24}{codeblock.8}%
+\contentsline {figure}{Code 4.9: Testbench for the modified Logic control}{25}{codeblock.9}%
+\contentsline {figure}{Code 4.10: Logic control modified with a very small counter}{27}{codeblock.10}%
+\contentsline {figure}{Figure 5.8: TB Selector}{30}{figure.caption.11}%
+\contentsline {figure}{Figure 5.9: TB Register}{31}{figure.caption.12}%
+\contentsline {figure}{Figure 5.10: TB Decoder}{32}{figure.caption.13}%
+\contentsline {figure}{Figure 5.11: TB Logic}{33}{figure.caption.14}%
