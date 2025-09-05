@@ -1,0 +1,20 @@
+\setcounter {tocdepth}{0}
+\contentsline {section}{\numberline {\texttt {0.}}\texttt {Introduction}}{1}{section.0}%
+\contentsline {subsection}{\numberline {\texttt {0.0.}}\texttt {Table of Contents}}{2}{subsection.0.0}%
+\contentsline {subsection}{\numberline {\texttt {0.1.}}\texttt {List of Figures}}{2}{subsection.0.1}%
+\setcounter {tocdepth}{2}
+\contentsline {section}{\numberline {\texttt {1.}}\texttt {Part 1}}{3}{section.1}%
+\contentsline {subsection}{\numberline {\texttt {1.0.}}\texttt {Solving}}{3}{subsection.1.0}%
+\contentsline {subsection}{\numberline {\texttt {1.1.}}\texttt {Code}}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {\texttt {1.2.}}\texttt {RTL}}{9}{subsection.1.2}%
+\contentsline {subsection}{\numberline {\texttt {1.3.}}\texttt {Results}}{11}{subsection.1.3}%
+\contentsline {section}{\numberline {\texttt {2.}}\texttt {Part 2}}{13}{section.2}%
+\contentsline {subsection}{\numberline {\texttt {2.0.}}\texttt {Solving}}{13}{subsection.2.0}%
+\contentsline {subsection}{\numberline {\texttt {2.1.}}\texttt {Code}}{14}{subsection.2.1}%
+\contentsline {subsection}{\numberline {\texttt {2.2.}}\texttt {RTL}}{16}{subsection.2.2}%
+\contentsline {subsection}{\numberline {\texttt {2.3.}}\texttt {Results}}{17}{subsection.2.3}%
+\contentsline {section}{\numberline {\texttt {3.}}\texttt {Part 3}}{19}{section.3}%
+\contentsline {subsection}{\numberline {\texttt {3.0.}}\texttt {Solving}}{19}{subsection.3.0}%
+\contentsline {subsection}{\numberline {\texttt {3.1.}}\texttt {Code}}{20}{subsection.3.1}%
+\contentsline {subsection}{\numberline {\texttt {3.2.}}\texttt {RTL}}{21}{subsection.3.2}%
+\contentsline {subsection}{\numberline {\texttt {3.3.}}\texttt {Results}}{22}{subsection.3.3}%

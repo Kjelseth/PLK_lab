@@ -1,0 +1,19 @@
+\contentsline {figure}{Code 1.0: TLE for the structural counter}{4}{codeblock.0}%
+\contentsline {figure}{Code 1.1: Counter component used in the TLE}{5}{codeblock.1}%
+\contentsline {figure}{Code 1.2: T-flip-flop component used in counter}{7}{codeblock.2}%
+\contentsline {figure}{Code 1.3: Display component used in the TLE}{7}{codeblock.3}%
+\contentsline {figure}{Code 1.4: Decoder component used in the display}{8}{codeblock.4}%
+\contentsline {figure}{Figure 1.0: RTL of the TLE}{9}{figure.caption.1}%
+\contentsline {figure}{Figure 1.1: RTL for the counter used in the TLE}{9}{figure.caption.2}%
+\contentsline {figure}{Figure 1.2: RTL for the T-flip-flop used in the counter}{10}{figure.caption.3}%
+\contentsline {figure}{Figure 1.3: Compilation results from structural counter}{11}{figure.caption.4}%
+\contentsline {figure}{Figure 1.4: Some functional tests, works as expected}{12}{figure.caption.5}%
+\contentsline {figure}{Code 2.0: TLE for the behavioural counter}{14}{codeblock.0}%
+\contentsline {figure}{Code 2.1: Modified display component used in the TLE}{15}{codeblock.1}%
+\contentsline {figure}{Figure 2.0: RTL of the TLE}{16}{figure.caption.6}%
+\contentsline {figure}{Figure 2.1: Compilation results from behavioural counter}{17}{figure.caption.7}%
+\contentsline {figure}{Figure 2.2: Some limited testing results}{18}{figure.caption.8}%
+\contentsline {figure}{Code 3.0: TLE of the clock divider}{20}{codeblock.0}%
+\contentsline {figure}{Figure 3.0: RTL of the TLE}{21}{figure.caption.9}%
+\contentsline {figure}{Figure 3.1: Compilation results from clock divider}{22}{figure.caption.10}%
+\contentsline {figure}{Figure 3.2: Testing results for clock divider}{23}{figure.caption.11}%
