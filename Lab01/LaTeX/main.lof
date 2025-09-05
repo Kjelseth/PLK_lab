@@ -1,0 +1,20 @@
+\contentsline {figure}{\numberline {1.0}{\ignorespaces TLE as described in the task}}{3}{figure.caption.1}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces TestBench for the TLE}}{4}{figure.caption.2}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Simulation results}}{5}{figure.caption.3}%
+\contentsline {figure}{\numberline {2.0}{\ignorespaces TLE for a 4 bit 2 to 1 multiplexer}}{6}{figure.caption.4}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces TestBench for the multiplexer}}{7}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Simulation results}}{8}{figure.caption.6}%
+\contentsline {figure}{\numberline {3.0}{\ignorespaces TLE for a 2 bit 4 to 1 multiplexer}}{9}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces TestBench for the multiplexer}}{10}{figure.caption.8}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Simulation results}}{11}{figure.caption.9}%
+\contentsline {figure}{\numberline {4.0}{\ignorespaces TLE for a simple 7 segment decoder}}{12}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces RTL synthesizing of the circuit}}{13}{figure.caption.11}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Test results}}{14}{figure.caption.12}%
+\contentsline {figure}{\numberline {5.0}{\ignorespaces 2 bit 4-to-1 multiplexer}}{15}{figure.caption.13}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces 2 bit 7 segment decoder}}{16}{figure.caption.14}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces TLE for rotating display}}{18}{figure.caption.15}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces RTL synthesizing of the multiplexer circuit}}{19}{figure.caption.16}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces RTL synthesizing of the decoder circuit}}{19}{figure.caption.17}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces RTL synthesizing of the TLE circuit}}{20}{figure.caption.18}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Test results for "dE1 " input}}{21}{figure.caption.19}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Test results for "E " input}}{22}{figure.caption.20}%
