@@ -1,0 +1,27 @@
+\setcounter {tocdepth}{0}
+\contentsline {section}{\numberline {\texttt {0.}}\texttt {Introduction}}{1}{section.0}%
+\contentsline {subsection}{\numberline {\texttt {0.0.}}\texttt {Table of Contents}}{2}{subsection.0.0}%
+\contentsline {subsection}{\numberline {\texttt {0.1.}}\texttt {List of Figures}}{3}{subsection.0.1}%
+\contentsline {subsection}{\numberline {\texttt {0.2.}}\texttt {List of Tables}}{4}{subsection.0.2}%
+\setcounter {tocdepth}{2}
+\contentsline {section}{\numberline {\texttt {1.}}\texttt {Part 1}}{5}{section.1}%
+\contentsline {subsection}{\numberline {\texttt {1.0.}}\texttt {Code}}{5}{subsection.1.0}%
+\contentsline {subsection}{\numberline {\texttt {1.1.}}\texttt {RTL}}{6}{subsection.1.1}%
+\contentsline {subsection}{\numberline {\texttt {1.2.}}\texttt {Results}}{6}{subsection.1.2}%
+\contentsline {section}{\numberline {\texttt {2.}}\texttt {Part 2}}{7}{section.2}%
+\contentsline {subsection}{\numberline {\texttt {2.0.}}\texttt {Code}}{7}{subsection.2.0}%
+\contentsline {subsection}{\numberline {\texttt {2.1.}}\texttt {RTL}}{9}{subsection.2.1}%
+\contentsline {subsection}{\numberline {\texttt {2.2.}}\texttt {Results}}{9}{subsection.2.2}%
+\contentsline {section}{\numberline {\texttt {3.}}\texttt {Part 3}}{11}{section.3}%
+\contentsline {subsection}{\numberline {\texttt {3.0.}}\texttt {Code}}{11}{subsection.3.0}%
+\contentsline {subsection}{\numberline {\texttt {3.1.}}\texttt {RTL}}{11}{subsection.3.1}%
+\contentsline {subsection}{\numberline {\texttt {3.2.}}\texttt {Results}}{11}{subsection.3.2}%
+\contentsline {section}{\numberline {\texttt {4.}}\texttt {Part 4}}{13}{section.4}%
+\contentsline {subsection}{\numberline {\texttt {4.0.}}\texttt {Code}}{13}{subsection.4.0}%
+\contentsline {subsection}{\numberline {\texttt {4.1.}}\texttt {RTL}}{15}{subsection.4.1}%
+\contentsline {subsection}{\numberline {\texttt {4.2.}}\texttt {Results}}{15}{subsection.4.2}%
+\contentsline {section}{\numberline {\texttt {5.}}\texttt {Part 5}}{17}{section.5}%
+\contentsline {subsection}{\numberline {\texttt {5.0.}}\texttt {Solving}}{17}{subsection.5.0}%
+\contentsline {subsection}{\numberline {\texttt {5.1.}}\texttt {Code}}{19}{subsection.5.1}%
+\contentsline {subsection}{\numberline {\texttt {5.2.}}\texttt {RTL}}{23}{subsection.5.2}%
+\contentsline {subsection}{\numberline {\texttt {5.3.}}\texttt {Results}}{24}{subsection.5.3}%

@@ -1,0 +1,27 @@
+\contentsline {figure}{Code 1.0: Code with equal function to the one included in the task}{5}{codeblock.0}%
+\contentsline {figure}{Figure 1.0: RTL for the TLE}{6}{figure.caption.1}%
+\contentsline {figure}{Figure 1.1: Simulation results}{6}{figure.caption.2}%
+\contentsline {figure}{Code 2.0: Simple D-latch with a small I/O mistake}{7}{codeblock.0}%
+\contentsline {figure}{Code 2.1: TLE importing a D-latch}{8}{codeblock.1}%
+\contentsline {figure}{Code 2.2: General D-latch component}{8}{codeblock.2}%
+\contentsline {figure}{Figure 2.0: TLE with a D-latch component}{9}{figure.caption.3}%
+\contentsline {figure}{Figure 2.1: The D-latch component expanded}{9}{figure.caption.4}%
+\contentsline {figure}{Figure 2.2: Simulation of the first D-latch with the I/O mistake}{9}{figure.caption.5}%
+\contentsline {figure}{Figure 2.3: D-latch on the FPGA using a component works as expected}{10}{figure.caption.6}%
+\contentsline {figure}{Code 3.0: TLE using two instances of a D-latch}{11}{codeblock.0}%
+\contentsline {figure}{Figure 3.0: RTL of the TLE with two instances}{11}{figure.caption.7}%
+\contentsline {figure}{Figure 3.1: D-flip-flop on the FPGA using two D-latches works as expected}{12}{figure.caption.8}%
+\contentsline {figure}{Code 4.0: TLE of a circuit to compare different data storage}{13}{codeblock.0}%
+\contentsline {figure}{Code 4.1: Code with equal function to the one included in the task}{14}{codeblock.1}%
+\contentsline {figure}{Code 4.2: Behavioural code for a D-flip-flop}{14}{codeblock.2}%
+\contentsline {figure}{Figure 4.0: RTL of the TLE with all three instances}{15}{figure.caption.9}%
+\contentsline {figure}{Figure 4.1: D-flip-flop and D-latches}{16}{figure.caption.10}%
+\contentsline {figure}{Figure 5.0: 7 segment FPGA bit order}{17}{figure.caption.11}%
+\contentsline {figure}{Code 5.0: TLE code for Part 5}{19}{codeblock.0}%
+\contentsline {figure}{Code 5.1: The Display component used in the TLE}{20}{codeblock.1}%
+\contentsline {figure}{Code 5.2: The Decoder component used in the Display component}{21}{codeblock.2}%
+\contentsline {figure}{Code 5.3: The Register component used in the TLE}{22}{codeblock.3}%
+\contentsline {figure}{Figure 5.1: RTL of the TLE}{23}{figure.caption.13}%
+\contentsline {figure}{Figure 5.2: RTL of registry used in the TLE}{23}{figure.caption.14}%
+\contentsline {figure}{Figure 5.3: RTL of the Display component with two decoder instances}{24}{figure.caption.15}%
+\contentsline {figure}{Figure 5.4: Results of part 5}{25}{figure.caption.16}%
